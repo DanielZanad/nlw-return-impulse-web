@@ -4,7 +4,7 @@ import cors from 'cors';
 const app  = express();
 
 
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['https://nlw-return-impulse-web-virid.vercel.app/'];
 
 const options: cors.CorsOptions = {
   origin: allowedOrigins
