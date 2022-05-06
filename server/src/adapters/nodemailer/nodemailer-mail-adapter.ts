@@ -1,0 +1,26 @@
+import nodemailer from 'nodemailer';
+import { MailAdapter, SendMailData } from "../main-adapter";
+
+
+
+const transport = nodemailer.createTransport({
+  host: "smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "3911fd252c374c",
+    pass: "8cefae1b113168"
+  }
+});
+
+
+export class NodemailerMailAdapter implements MailAdapter {
+  async sendMail({subject, body}: SendMailData) {
+    await transport.sendMail({
+      from: 'Equipe Feedget <oi@feedget.com>',
+      to: 'Daniel Zanad <daniel.zanad.dz@gmail.com>',
+      subject,
+      html: body
+    });
+
+  };
+}
